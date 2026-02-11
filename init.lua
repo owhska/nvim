@@ -402,18 +402,22 @@ local function post_install_setup()
   vim.keymap.set('n', '<leader>gl', function()
       require('fzf-lua').git_commits()  -- Log visual
   end, { desc = 'Git Log (fzf-lua)' })
-  
+
   vim.keymap.set('n', '<leader>gs', function()
       require('fzf-lua').git_status()  -- Status com preview
   end, { desc = 'Git Status (fzf-lua)' })
-  
+
   vim.keymap.set('n', '<leader>gd', function()
       require('fzf-lua').git_branches()  -- Lista branches
   end, { desc = 'Git Branches (fzf-lua)' })
-  
+
   vim.keymap.set('n', '<leader>gb', function()
       require('fzf-lua').git_bcommits()  -- Histórico do arquivo
   end, { desc = 'Git File History (fzf-lua)' })
+
+  vim.keymap.set('n', '<C-p>', function()
+      require('fzf-lua').git_files()  -- Histórico do arquivo
+  end, { desc = 'Git Files (fzf-lua)' })
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition)
   vim.keymap.set("n", "K", vim.lsp.buf.hover)
