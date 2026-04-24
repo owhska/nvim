@@ -35,6 +35,47 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt_local.laststatus = 0
+local opt = vim.opt
+
+opt.breakindent = true
+opt.completeopt = { "menu", "menuone", "popup", "noinsert", "fuzzy" }
+opt.confirm = true
+opt.conceallevel = 2
+vim.opt.cpoptions:remove { "_" }
+opt.equalalways = false
+opt.expandtab = true
+opt.fillchars = "trunc:…"
+opt.foldlevelstart = 99
+opt.foldmethod = "expr"
+opt.ignorecase = true
+opt.inccommand = "split"
+opt.list = true
+opt.listchars:append("precedes:…,extends:…,trail:ꞏ")
+opt.mouse = "nvc"
+opt.pumheight = 12
+opt.pummaxwidth = 50
+opt.scrolloff = 8
+opt.shada = "'100,<50,s10,:1000,/100,@100,h"
+opt.sessionoptions:remove { "blank" }
+opt.shiftwidth = 4
+opt.shortmess:append("Sc")
+opt.showmatch = true
+opt.showmode = false
+-- opt.showtabline = 2
+opt.signcolumn = "yes:1"
+opt.smartcase = true
+opt.smartindent = true
+opt.spelllang = "en_gb"
+opt.splitbelow = true
+opt.splitright = true
+--opt.swapfile = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.undofile = true
+opt.updatetime = 300
+opt.wrap = false
+opt.clipboard = "unnamedplus"
+
 --vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
 --vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
 vim.g.mapleader = " "
