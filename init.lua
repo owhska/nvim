@@ -29,7 +29,7 @@ local packer_bootstrap = ensure_packer()
 -- OPÇÕES BÁSICAS
 ------------------------------------------------------------
 vim.deprecate = function() end
-
+vim.opt.guicursor = "" -- bloco ao inves de linha
 vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
