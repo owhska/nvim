@@ -291,6 +291,11 @@ require('packer').startup(function(use)
   use 'theprimeagen/harpoon'
 
   use {
+      'nvim-tree/nvim-tree.lua',
+      requires = { 'nvim-tree/nvim-web-devicons' },
+  }
+
+  use {
       'williamboman/mason-lspconfig.nvim',
       tag = 'v1.0.0', -- compatível com mason v1.x
       requires = { 'williamboman/mason.nvim' },
@@ -416,6 +421,26 @@ local function post_install_setup()
       vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
   end)
 
+  pcall(function()
+      require('nvim-tree').setup({
+          disable_netrw = false,   -- deixa o netrw vivo
+          hijack_netrw = false,    -- não sequestra
+          hijack_directories = {
+              enable = false,      -- não abre ao entrar em diretório
+          },
+          view = {
+              width = 30,
+              side = 'left',
+          },
+          filters = {
+              dotfiles = false,
+          },
+          update_focused_file = {
+              enable = true,
+          },
+      })
+  end)
+
   -- Cores
   vim.cmd('colorscheme matteblack')
   vim.cmd('hi statusline guibg=NONE')
@@ -436,6 +461,7 @@ local function post_install_setup()
   vim.keymap.set('n', '<leader>wl', '<C-w>l')
 
   vim.keymap.set('n', '<leader>t', ':belowright split term://zsh<CR>', { silent = true })
+  vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { silent = true, desc = 'Toggle NvimTree' })
 
   vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
   vim.keymap.set('n', '<leader>gt', vim.cmd.Git)
