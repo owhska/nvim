@@ -290,6 +290,7 @@ require('packer').startup(function(use)
   use 'rafamadriz/friendly-snippets'
   use 'theprimeagen/harpoon'
   use "nickkadutskyi/jb.nvim"
+  use "sindrets/diffview.nvim"
     
   use {
       'nvim-tree/nvim-tree.lua',
@@ -450,6 +451,27 @@ local function post_install_setup()
       })
   end)
 
+  pcall(function()
+      require('diffview').setup({
+          view = {
+              default = {
+                  --layout = "diff2_vertical",  
+                  layout = "diff2_horizontal",
+              },
+              file_history = {
+                  --layout = "diff2_vertical",
+                  layout = "diff2_horizontal",
+              },
+          },
+          panel = {
+              position = "left",
+              width = 20,
+              --position = "bottom",
+              --height = 16,
+          },
+      })
+  end)
+
   -- Cores
   vim.cmd('colorscheme matteblack')
   vim.cmd('hi statusline guibg=NONE')
@@ -470,6 +492,7 @@ local function post_install_setup()
   vim.keymap.set('n', '<leader>wl', '<C-w>l')
 
   vim.keymap.set('n', '<leader>t', ':belowright 12split term://zsh<CR>', { silent = true })
+  vim.keymap.set('n', '<leader>d', ':DiffviewOpen<CR>', { silent = true, desc = 'Diffview' })
   vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { silent = true, desc = 'Toggle NvimTree' })
 
   vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
