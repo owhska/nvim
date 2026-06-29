@@ -289,7 +289,8 @@ require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
   use 'theprimeagen/harpoon'
-
+  use "nickkadutskyi/jb.nvim"
+    
   use {
       'nvim-tree/nvim-tree.lua',
       requires = { 'nvim-tree/nvim-web-devicons' },
@@ -348,6 +349,14 @@ local function post_install_setup()
               expand = function(args)
                   luasnip.lsp_expand(args.body)
               end,
+          },
+          window = {                                          -- <-- adicione aqui
+              completion = cmp.config.window.bordered({
+                  winhighlight = "Normal:Pmenu,FloatBorder:DialogFloatBorder,CursorLine:PmenuSel,Search:None",
+              }),
+              documentation = cmp.config.window.bordered({
+                  winhighlight = "Normal:Pmenu,FloatBorder:DialogFloatBorder,CursorLine:PmenuSel,Search:None",
+              }),
           },
           mapping = cmp.mapping.preset.insert({
               ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -547,7 +556,8 @@ else
 end
 
 function ColorMyPencils(color)
-  color = color or "matteblack"
+  --color = color or "matteblack"
+  color = color or "jb"
 
   local ok = pcall(vim.cmd.colorscheme, color)
   if not ok then
