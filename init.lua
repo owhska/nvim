@@ -460,7 +460,7 @@ local function post_install_setup()
   vim.keymap.set('n', '<leader>wk', '<C-w>k')
   vim.keymap.set('n', '<leader>wl', '<C-w>l')
 
-  vim.keymap.set('n', '<leader>t', ':belowright split term://zsh<CR>', { silent = true })
+  vim.keymap.set('n', '<leader>t', ':belowright 12split term://zsh<CR>', { silent = true })
   vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { silent = true, desc = 'Toggle NvimTree' })
 
   vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
