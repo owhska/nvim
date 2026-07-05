@@ -557,6 +557,41 @@ local function post_install_setup()
       require('fzf-lua').live_grep()
   end, { desc = 'FZF Grep' })
 
+  vim.keymap.set("v", "<leader>m", function()
+      local cs = vim.bo.commentstring
+      local prefix = cs:match("^(.-)%s*%%s")
+
+      local start_line = vim.fn.line("v")
+      local end_line = vim.fn.line(".")
+      if start_line > end_line then
+          start_line, end_line = end_line, start_line
+      end
+
+      local all_commented = true
+      for i = start_line, end_line do
+          local l = vim.api.nvim_buf_get_lines(0, i - 1, i, false)[1]
+          if not l:match("^%s*" .. vim.pesc(prefix)) then
+              all_commented = false
+              break
+          end
+      end
+
+      for i = start_line, end_line do
+          local l = vim.api.nvim_buf_get_lines(0, i - 1, i, false)[1]
+          local new
+          if all_commented then
+              new = l:gsub("%s*" .. vim.pesc(prefix) .. "%s?", "", 1)
+          else
+              local indent = l:match("^(%s*)")
+              local rest = l:sub(#indent + 1)
+              new = indent .. prefix .. " " .. rest
+          end
+          vim.api.nvim_buf_set_lines(0, i - 1, i, false, { new })
+      end
+
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), "n", false)
+   end, { desc = "toggle commented" })
+
    pcall(function()
       require('nvim-treesitter.configs').setup({
           ensure_installed = {
