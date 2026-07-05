@@ -76,6 +76,17 @@ opt.updatetime = 300
 opt.wrap = false
 opt.clipboard = "unnamedplus"
 
+vim.cmd([[
+function! Modified_Get()
+    return &modified ? '[+]' : ''
+endfunction
+]])
+
+vim.o.statusline = " [FILENAME: %t] %= [TYPE: %Y] [LINE: %l/%L : %c] [%p%%] %{Modified_Get()}"
+vim.o.laststatus = 2
+vim.o.shortmess = vim.o.shortmess .. "atI"
+vim.o.cmdheight = 1
+
 --vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
 --vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
 vim.g.mapleader = " "
