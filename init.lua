@@ -493,6 +493,7 @@ local function post_install_setup()
   vim.keymap.set('n', '<leader>wq', ':quit<CR>')
   vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
   vim.keymap.set('n', '<leader>n', ':enew<CR>', { desc = 'New File' })
+  vim.keymap.set('n', '<leader>q', ':tabclose<CR>')
 
   vim.keymap.set('n', '<leader>wv', ':vsplit<CR>', { silent = true })
   vim.keymap.set('n', '<leader>ws', ':split<CR>', { silent = true })
