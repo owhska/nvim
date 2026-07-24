@@ -302,6 +302,8 @@ require('packer').startup(function(use)
   use 'theprimeagen/harpoon'
   use "nickkadutskyi/jb.nvim"
   use "sindrets/diffview.nvim"
+
+  --  use "folke/which-key.nvim"
     
   use {
       'nvim-tree/nvim-tree.lua',
@@ -482,6 +484,76 @@ local function post_install_setup()
           },
       })
   end)
+
+    -- pcall(function()
+      -- local wk = require("which-key")
+      -- wk.setup({
+          -- preset = "helix", -- modern classic
+          -- delay = 300,
+      -- })
+-- 
+      -- wk.add({
+          -- -- Grupos principais
+          -- { "<leader>w", group = "window/write" },
+          -- { "<leader>g", group = "git" },
+          -- { "<leader>v", group = "lsp" },
+-- 
+          -- -- Write / quit / arquivo
+          -- { "<leader>ww", desc = "Write file" },
+          -- { "<leader>wq", desc = "Quit" },
+          -- { "<leader>q",  desc = "Close tab" },
+          -- { "<leader>e",  desc = "Explorer (netrw)" },
+          -- { "<leader>n",  desc = "New file" },
+-- 
+          -- -- Splits e navegação de janela
+          -- { "<leader>wv", desc = "Vertical split" },
+          -- { "<leader>ws", desc = "Horizontal split" },
+          -- { "<leader>wh", desc = "Go to left window" },
+          -- { "<leader>wj", desc = "Go to below window" },
+          -- { "<leader>wk", desc = "Go to above window" },
+          -- { "<leader>wl", desc = "Go to right window" },
+-- 
+          -- -- Terminal / ferramentas externas
+          -- { "<leader>t", desc = "Open terminal split (zsh)" },
+          -- { "<leader>i", desc = "Open agy in vsplit" },
+          -- { "<leader>o", desc = "Open opencode in vsplit" },
+-- 
+          -- -- Diffview / NvimTree / Undotree
+          -- { "<leader>d", desc = "Diffview open" },
+          -- { "<leader>b", desc = "Toggle NvimTree" },
+          -- { "<leader>u", desc = "Toggle Undotree" },
+-- 
+          -- -- Tabs
+          -- { "<leader><Tab>",   desc = "Next tab" },
+          -- { "<leader><S-Tab>", desc = "Previous tab" },
+-- 
+          -- -- Git (fugitive + fzf-lua)
+          -- { "<leader>gt", desc = "Git status (fugitive)" },
+          -- { "<leader>gl", desc = "Git log (fzf-lua)" },
+          -- { "<leader>gs", desc = "Git status (fzf-lua)" },
+          -- { "<leader>gd", desc = "Git branches (fzf-lua)" },
+          -- { "<leader>gb", desc = "Git file history (fzf-lua)" },
+-- 
+          -- -- LSP
+          -- { "<leader>vww", desc = "Workspace symbol" },
+          -- { "<leader>vd",  desc = "Open diagnostic float" },
+          -- { "<leader>vca", desc = "Code action" },
+          -- { "<leader>vr",  desc = "LSP references" },
+          -- { "<leader>vrn", desc = "LSP rename" },
+-- 
+          -- -- FZF (fora do grupo leader-w/g/v)
+          -- { "<leader>f", desc = "FZF find files" },
+          -- { "<leader>/", desc = "FZF live grep" },
+          -- { "<leader>a", desc = "Harpoon: add file" },
+          -- { "<leader>1", desc = "Harpoon: file 1" },
+          -- { "<leader>2", desc = "Harpoon: file 2" },
+          -- { "<leader>3", desc = "Harpoon: file 3" },
+          -- { "<leader>4", desc = "Harpoon: file 4" },
+-- 
+          -- -- Comment toggle (modo visual)
+          -- { "<leader>m", desc = "Toggle comment", mode = "v" },
+      -- })
+  -- end)
 
   -- Cores
   vim.cmd('colorscheme matteblack')
