@@ -531,6 +531,7 @@ local function post_install_setup()
            -- Tabs
            { "<leader><Tab>",   desc = "Next tab" },
            { "<leader><S-Tab>", desc = "Previous tab" },
+           { "<leader>N", desc = "New tab" },
 -- 
            -- Git (fugitive + fzf-lua)
            { "<leader>gt", desc = "Git status (fugitive)" },
@@ -586,6 +587,7 @@ local function post_install_setup()
   vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { silent = true, desc = 'Toggle NvimTree' })
   vim.keymap.set('n', '<leader><Tab>', ':tabnext<CR>', { silent = true, desc = 'Next tab' })
   vim.keymap.set('n', '<leader><S-Tab>', ':tabprevious<CR>', { silent = true, desc = 'Last tab' })
+  vim.keymap.set('n', '<leader>N', ':tabnew<CR>', { silent = true, desc = 'New tab' })
   
   vim.keymap.set('n', '<leader>i', function()
       vim.cmd('vsplit')
