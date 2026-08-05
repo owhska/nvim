@@ -538,6 +538,7 @@ local function post_install_setup()
            { "<leader>gs", desc = "Git status (fzf-lua)" },
            { "<leader>gd", desc = "Git branches (fzf-lua)" },
            { "<leader>gb", desc = "Git file history (fzf-lua)" },
+           { "<leader>gg", desc = "Git Grep (fzf-lua)" },
 -- 
           -- -- LSP
            { "<leader>vww", desc = "Workspace symbol" },
@@ -557,8 +558,8 @@ local function post_install_setup()
 -- 
            -- Comment toggle (modo visual)
            { "<leader>m", desc = "Toggle comment", mode = "v" },
-      -- })
-  -- end)
+       })
+  end)
 
   -- Cores
   --vim.cmd('colorscheme matteblack')
@@ -624,6 +625,13 @@ local function post_install_setup()
   vim.keymap.set('n', '<C-p>', function()
       require('fzf-lua').git_files()  -- Histórico do arquivo
   end, { desc = 'Git Files (fzf-lua)' })
+
+  vim.keymap.set('n', '<leader>gg', function()
+    require('fzf-lua').live_grep({
+        cmd = "git grep --line-number --column --color=always",
+        prompt = 'GitGrep❯ ',
+    })
+  end, { desc = 'Live Grep (git files only)' })
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition)
   vim.keymap.set("n", "K", vim.lsp.buf.hover)
