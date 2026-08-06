@@ -307,6 +307,10 @@ require('packer').startup(function(use)
   use "nickkadutskyi/jb.nvim"
   use "sindrets/diffview.nvim"
   use 'iagorrr/noctis-high-contrast.nvim'
+  use 'Mofiqul/vscode.nvim'
+  use 'craftzdog/solarized-osaka.nvim'
+  use 'zitrocode/carvion.nvim'
+  use 'martinsione/darkplus.nvim'
 
   use "folke/which-key.nvim"
     
@@ -743,7 +747,11 @@ end
 function ColorMyPencils(color)
   --color = color or "matteblack"
   --color = color or "jb"
-  color = color or "noctishc"
+  --color = color or "solarized-osaka"
+  --color = color or "vscode"
+  --color = color or "carvion"
+  color = color or "darkplus"
+  --color = color or "noctishc"
 
   local ok = pcall(vim.cmd.colorscheme, color)
   if not ok then
