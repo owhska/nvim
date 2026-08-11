@@ -311,6 +311,7 @@ require('packer').startup(function(use)
   use 'craftzdog/solarized-osaka.nvim'
   use 'zitrocode/carvion.nvim'
   use 'martinsione/darkplus.nvim'
+  use 'dchinmay2/alabaster.nvim'
 
   use "folke/which-key.nvim"
     
@@ -749,7 +750,8 @@ function ColorMyPencils(color)
   --color = color or "jb"
   --color = color or "solarized-osaka"
   --color = color or "vscode"
-  color = color or "carvion"
+  --color = color or "carvion"
+  color = color or "alabaster"
   --color = color or "darkplus"
   --color = color or "noctishc"
 
