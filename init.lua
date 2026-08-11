@@ -751,7 +751,8 @@ function ColorMyPencils(color)
   --color = color or "solarized-osaka"
   --color = color or "vscode"
   --color = color or "carvion"
-  color = color or "alabaster"
+  --color = color or "alabaster"
+  color = color or "tema"
   --color = color or "darkplus"
   --color = color or "noctishc"
 
