@@ -75,6 +75,8 @@ opt.undofile = true
 opt.updatetime = 300
 opt.wrap = false
 opt.clipboard = "unnamedplus"
+vim.opt.swapfile = false
+vim.opt.backup = false
 
 vim.cmd([[
 function! Modified_Get()
